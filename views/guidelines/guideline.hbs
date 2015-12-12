@@ -1,0 +1,16 @@
+<div class="container">
+    {{> form-header}}
+    {{#with guideline}}
+        {{#if ../userIsAdmin}}
+            <a class="btn btn-large btn-primary" href="/guidelines/delete/{{_id}}">Delete</a>
+        {{/if}}
+        {{#with category}}
+          <h4>{{title}}</h4>
+        {{/with}}
+        <h4>{{description}}</h4>
+        <pre><code>{{codeExample}}</code></pre>
+        <h4>{{tags}}</h4>
+        {{> guideline-comments comments=comments}}
+        {{> new-comment}}
+    {{/with}}
+</div>

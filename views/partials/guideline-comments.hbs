@@ -1,0 +1,12 @@
+<div class="container">
+    <h4>Comments</h4>
+    {{#each comments}}
+        <ul class="list-group">
+            <li class="list-group-item">
+                <p>{{createdBy}}: {{content}}</p>
+                <h5>{{formattedDate}}</h5>
+
+            </li>
+        </ul>
+    {{/each}}
+</div>

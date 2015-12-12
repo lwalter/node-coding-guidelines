@@ -1,0 +1,21 @@
+<div class="container">
+    {{> form-header}}
+    <form name="create-guideline-category" method="post">
+        <div class="form-group">
+            <label>Title</label>
+            <input class="form-control" id="title" type="text" name="title" required="true">
+        </div>
+        <div class="form-group">
+            <label>Parent category</label>
+            <select class="form-control" id="parentCategory" type="text" name="parentCategory">
+                <option value=""></option>
+                {{#each categories}}
+                  <option value="{{_id}}">{{title}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="actions">
+            <button class="btn btn-large btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>

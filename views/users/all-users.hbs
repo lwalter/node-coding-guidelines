@@ -1,0 +1,21 @@
+<div class="container">
+    <table>
+        <th>
+            <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Is administrator</td>
+            </tr>
+        </th>
+        <tbody>
+        {{#each users}}
+          <tr>
+              <td>{{firstname}} {{lastname}}</td>
+              <td>{{email}}</td>
+              <!--TODO(lnw) IsAdmin should be a checkbox, simple save button? -->
+              <td>IsAdmin: {{isAdmin}}</td>
+          </tr>
+        {{/each}}
+        </tbody>
+    </table>
+</div>

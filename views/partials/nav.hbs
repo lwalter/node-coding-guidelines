@@ -1,0 +1,22 @@
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Coding Guidelines</a>
+        <ul class="nav navbar-nav navbar-right">
+          {{#if userLoggedIn}}
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{firstname}} <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      {{#if userIsAdmin}}
+                          <li><a href="/guideline-category/create">Add a guideline category</a></li>
+                          <li><a href="/guidelines/create">Add a guideline</a></li>
+                      {{/if}}
+                      <li><a href="/logout">Logout</a></li>
+                  </ul>
+              </li>
+          {{else}}
+              <li><a href="/login">Login</a></li>
+              <li><a href="/register">Register</a></li>
+          {{/if}}
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="page-header">
+        <h1>{{title}} <small>Where amazing code is fostered</small></h1>
+    </div>
+    {{#if userLoggedIn}}
+      {{#each guidelines}}
+          <div>
+              <a href="/guidelines/{{_id}}">{{title}}</a>
+          </div>
+      {{/each}}
+    {{/if}}
+</div>

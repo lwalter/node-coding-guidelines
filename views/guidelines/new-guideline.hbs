@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="page-header">
+        <h1>{{title}}</h1>
+    </div>
+    <form name="create-guideline" method="post">
+        <div class="form-group">
+            <label>Title</label>
+            <input class="form-control" id="title" type="text" name="title" required="true">
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" id="description" type="text" name="description" cols="40" rows="5" required="true"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+            <select class="form-control" id="category" type="text" name="category">
+              {{#each categories}}
+                  <option value="{{_id}}">{{title}}</option>
+              {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Code example</label>
+            <textarea class="form-control" id="codeExample" type="text" name="codeExample" cols="40" rows="5"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Tags</label>
+            <input class="form-control" id="tags" type="text" name="tags" required="true">
+        </div>
+        <div class="actions">
+            <button class="btn btn-large btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
