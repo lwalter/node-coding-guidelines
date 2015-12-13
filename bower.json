@@ -1,0 +1,22 @@
+{
+  "name": "node-coding-guidelines",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Luke Walter"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/lwalter/node-coding-guidelines",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material": "master",
+    "angular-route": "~1.4.8"
+  }
+}

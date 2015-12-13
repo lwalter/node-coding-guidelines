@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var hbs = require('express-hbs');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/coding_guidelines');
@@ -12,28 +11,30 @@ mongoose.connect('mongodb://localhost/coding_guidelines');
 var passport = require('passport');
 
 var localMiddleware = require('./middleware/middleware');
-
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var guidelines = require('./routes/guidelines');
-var guidelineCategories = require('./routes/guideline-categories');
+//var users = require('./routes/users');
+//var guidelines = require('./routes/guidelines');
+//var guidelineCategories = require('./routes/guideline-categories');
 
 var app = express();
 
+/*
 var moment = require('moment');
 
 hbs.registerHelper('formattedDate', function (date) {
   return new  hbs.SafeString(moment(date).fromNow());
 });
+*/
 
+/*
 // view engine setup
 app.engine('hbs', hbs.express4({
-  partialsDir: path.join(__dirname, 'views/partials'),
-  defaultLayout: path.join(__dirname, 'views/layouts/defaultLayout.hbs'),
-  layoutsDir: path.join(__dirname, 'views/layouts')
+  partialsDir: path.join(__dirname, 'public/views/partials'),
+  defaultLayout: path.join(__dirname, 'public/views/layouts/defaultLayout.hbs'),
+  layoutsDir: path.join(__dirname, 'public/views/layouts')
 }));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+*/
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -58,17 +59,15 @@ passport.deserializeUser(User.deserializeUser());
 app.use(localMiddleware.authentication.userLoggedIn);
 app.use(localMiddleware.authentication.userIsAdmin);
 
-/*
-app.use(function (req, res, next) {
-  console.log(res.locals);
-  next();
-});
-*/
+var guidelinesApi = require('./routes/api/guidelines');
+app.use('/api/guidelines', guidelinesApi);
 
+var routes = require('./routes/index');
 app.use('/', routes);
-app.use('/', users);
-app.use('/guidelines', guidelines);
-app.use('/guideline-category', guidelineCategories);
+
+//app.use('/', users);
+//app.use('/guidelines', guidelines);
+//app.use('/guideline-category', guidelineCategories);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -81,6 +80,7 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
+
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);

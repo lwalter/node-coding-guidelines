@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>node-coding-guidelines</title>
+    <base href="/">
+
+    <link rel="stylesheet" href="libs/angular-material/angular-material.css">
+    <link rel="stylesheet" href="libs/angular-material/angular-material.layouts.css">
+
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/angular-animate/angular-animate.js"></script>
+    <script src="libs/angular-aria/angular-aria.js"></script>
+    <script src="libs/angular-material/angular-material.js"></script>
+    <script src="libs/angular-route/angular-route.js"></script>
+
+    <script src="js/guidelineApp.js"></script>
+    <script src="js/services/guidelineService.js"></script>
+    <script src="js/controllers/guidelineListController.js"></script>
+    <script src="js/appRoutes.js"></script>
+</head>
+<body ng-app="guidelineApp">
+    <div>
+      <md-content>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <md-button aria-label="Go Back">Go Back</md-button>
+            <h2>
+              <span>{{ title }}</span>
+            </h2>
+            <span flex></span>
+            <md-button class="md-raised">Learn More</md-button>
+          </div>
+        </md-toolbar>
+      </md-content>
+    </div>
+    <div ng-view=""></div>
+</body>
+</html>
